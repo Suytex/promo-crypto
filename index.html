@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suytex Crypto Experience — En 5 días tienes tu primer Bitcoin</title>
+  <meta name="description" content="Entrenamiento en vivo de 5 días: compra, custodia y planifica tu primer Bitcoin con Francisco de Suytex.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0c0f;
+      --bg-card:   #131418;
+      --bg-card2:  #1a1b21;
+      --border:    #2a2b32;
+      --text:      #e4e4e7;
+      --muted:     #8b8c96;
+      --accent:    #7c3aed;
+      --accent-h:  #6d28d9;
+      --accent-lo: rgba(124,58,237,.15);
+      --gold:      #f59e0b;
+      --green:     #22c55e;
+      --red:       #ef4444;
+      --wa:        #25d366;
+      --wa-h:      #1ebe5a;
+      --radius:    12px;
+      --max:       780px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── STICKY CTA ─────────────────────────────────── */
+    #sticky-cta {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11,12,15,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: .6rem 1.25rem;
+      flex-wrap: wrap;
+    }
+    #sticky-cta span {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+    #sticky-cta a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: .82rem;
+      font-weight: 700;
+      padding: .38rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    #sticky-cta a:hover { background: var(--accent-h); }
+
+    /* ── HERO ───────────────────────────────────────── */
+    #hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .eyebrow-pill {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    #hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .75rem;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 2rem;
+    }
+    .btn-hero {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: .85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-hero:hover { background: var(--accent-h); transform: translateY(-1px); }
+
+    /* ── MAIN CONTENT ───────────────────────────────── */
+    #content {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem 5rem;
+    }
+    .loading {
+      text-align: center;
+      color: var(--muted);
+      padding: 3rem 0;
+      font-size: .95rem;
+    }
+
+    /* ── MARKDOWN ELEMENTS ──────────────────────────── */
+    #content h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: #fff;
+      margin: 3.5rem 0 .5rem;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    #content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+
+    #content h3 {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 1.5rem 0 .6rem;
+      line-height: 1.25;
+    }
+
+    #content p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    #content strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    #content ul, #content ol {
+      margin: .75rem 0 1.25rem 1.4rem;
+    }
+    #content li {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: .5rem;
+      line-height: 1.65;
+    }
+    #content li strong { color: #fff; }
+
+    #content blockquote {
+      background: var(--bg-card);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+    #content blockquote p {
+      color: var(--text);
+      font-style: italic;
+      margin: 0;
+    }
+
+    #content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    #content ol { list-style: decimal; }
+    #content ul { list-style: disc; }
+
+    /* ── WHATSAPP BUTTON ────────────────────────────── */
+    #content a[href*="wa.me"],
+    #hero   a[href*="wa.me"] {
+      display: inline-block;
+      background: var(--wa);
+      color: #fff !important;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: .9rem 2rem;
+      border-radius: 999px;
+      text-decoration: none !important;
+      transition: background .2s, transform .15s;
+      margin: 1rem 0;
+    }
+    #content a[href*="wa.me"]:hover,
+    #hero   a[href*="wa.me"]:hover {
+      background: var(--wa-h);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    footer p { font-size: .82rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 600px) {
+      #hero { padding: 3.5rem 1.25rem 3rem; }
+      #content { padding: 0 1.25rem 4rem; }
+      #content h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky CTA -->
+  <div id="sticky-cta">
+    <span>⏳ Cupos limitados por grupo</span>
+    <a href="https://wa.me/18096399999?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20en%20Suytex%20Crypto%20Experience"
+       target="_blank" rel="noopener noreferrer">
+      Reservar mi cupo →
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="eyebrow-pill">SUYTEX CRYPTO EXPERIENCE</div>
+    <h1>En 5 días tienes tu primer Bitcoin.</h1>
+    <p class="hero-sub">Comprado. Guardado seguro. Y con un plan.</p>
+    <p class="hero-desc">No necesitas ser técnico. No necesitas experiencia previa. Solo necesitas los 5 días correctos — con alguien que te lleve paso a paso.</p>
+    <a class="btn-hero"
+       href="https://wa.me/18096399999?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20en%20Suytex%20Crypto%20Experience"
+       target="_blank" rel="noopener noreferrer">
+      💬 Quiero mi primer Bitcoin
+    </a>
+  </section>
+
+  <!-- Dynamic content -->
+  <main id="content">
+    <div class="loading">Cargando contenido…</div>
+  </main>
+
+  <footer>
+    <p>© 2025 Suytex · <a href="https://suytex.com" target="_blank" rel="noopener noreferrer">suytex.com</a></p>
+  </footer>
+
+  <script>
+    async function loadContent() {
+      try {
+        var res = await fetch('assets/content.txt');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        var text = await res.text();
+        document.getElementById('content').innerHTML = marked.parse(text);
+        patchLinks();
+      } catch (e) {
+        console.error('Error cargando contenido:', e);
+        document.getElementById('content').innerHTML =
+          '<p style="color:#8b8c96;text-align:center;padding:3rem 0">Contenido no disponible. Intenta recargar.</p>';
+      }
+    }
+
+    function patchLinks() {
+      try {
+        document.querySelectorAll('#content a[href]').forEach(function (a) {
+          var href = a.getAttribute('href') || '';
+          if (href.startsWith('http://') || href.startsWith('https://')) {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+          }
+        });
+      } catch (e) {
+        console.error('patchLinks error:', e);
+      }
+    }
+
+    loadContent();
+  </script>
+
+</body>
+</html>
